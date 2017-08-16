@@ -8,6 +8,9 @@
 <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Coming Soon' rel='stylesheet'>
 <style>
+  table{
+    width: 100%;
+  }
   body{
     background: black;
   }
