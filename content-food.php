@@ -164,9 +164,7 @@
     ?>
   </div>
 <?php if (have_posts()) : while (have_posts()) : the_post();
-$patorseing_feature_img_url = wp_get_attachment_url(get_post_thumbnail_id(get_the_id()), 'full');
-if($patorseing_feature_img_url == "") {
-} else {?>
+$patorseing_feature_img_url = wp_get_attachment_url(get_post_thumbnail_id(get_the_id()), 'full');?>
 <style>
   body{
     background: url('<?php echo $patorseing_feature_img_url; ?>') no-repeat;
@@ -179,7 +177,6 @@ if($patorseing_feature_img_url == "") {
   <img src="<?php echo esc_url($patorseing_feature_img_url); ?>"/>
   <a class="lightbox-close" href="#"></a>
 </div>
-<?}?>
 <div style="margin-left:5%;">
 <?php
    the_content();
