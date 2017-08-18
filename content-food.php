@@ -1,8 +1,13 @@
-<!--<a href="#1"><img src="" alt="" width="300" height="225" class="alignnone size-medium wp-image-135" /></a>
+<!-- images <a href="#1"><img src="" alt="" width="300" height="225" class="alignnone size-medium wp-image-135" /></a>
 
 <div class="lightbox-target" id="1">
    <img src=""/>
    <a class="lightbox-close" href="#"></a>
+</div>-->
+<!-- video <div style="height:0;padding-bottom:56.25%;margin-top: 2.5%;">
+            <iframe src="" width="640" height="360" frameborder="0" style="width:75%;height: 75%;left:0" allowfullscreen>
+          </iframe>
+        </div>
 </div>-->
 <?php get_header('recipe'); ?>
 <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
@@ -10,10 +15,6 @@
 <style>
   table{
     width: 100%;
-  }
-  td {
-	width: 50%;
-    padding: 3%;
   }
   body{
     background: black;
@@ -163,13 +164,22 @@
     ?>
   </div>
 <?php if (have_posts()) : while (have_posts()) : the_post();
-$patorseing_feature_img_url = wp_get_attachment_url(get_post_thumbnail_id(get_the_id()), 'full'); ?>
+$patorseing_feature_img_url = wp_get_attachment_url(get_post_thumbnail_id(get_the_id()), 'full');
+if($patorseing_feature_img_url == "") {
+} else {?>
 <style>
   body{
     background: url('<?php echo $patorseing_feature_img_url; ?>') no-repeat;
     background-size: cover;
   }
 </style>
+<a href="#abc"><img src="<?php echo esc_url($patorseing_feature_img_url); ?>" alt="" width="300" height="225" class="alignnone size-medium wp-image-135" /></a>
+
+<div class="lightbox-target" id="abc">
+  <img src="<?php echo esc_url($patorseing_feature_img_url); ?>"/>
+  <a class="lightbox-close" href="#"></a>
+</div>
+<?}?>
 <div style="margin-left:5%;">
 <?php
    the_content();
