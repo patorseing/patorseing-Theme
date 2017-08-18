@@ -1,4 +1,4 @@
-<?php get_header('diary'); ?>
+<?php get_header(); ?>
 <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
 <h2 style="margin-left:5%; margin-top:15%; margin-bottom:5%; font-family: Chalkduster; color:white;"><?php single_tag_title('Tag: '); $current_tag = single_tag_title("", false);?></h2>
 	<?php
@@ -8,7 +8,6 @@ if ( get_query_var('paged') ) { $paged = get_query_var('paged'); }
               $args = array(
                     'tag' => $current_tag,
 										'posts_per_page'   => -1,
-										'category_name' 	 => 'diary',
                     'orderby'          => 'post_date',
                     'order'            => 'DESC',
                     'post_type'        => 'post',
