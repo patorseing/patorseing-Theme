@@ -102,7 +102,8 @@ input[type=text]:focus {
   <a href="https://www.patorseingstyle.me/diary/">All</a>
   <a>Tags</a>
   <?php
-    $tags = get_tags();
+    $args = array('category_name' 	 => 'diary');
+    $tags = get_category_tags($args);
     $html = '<ul>';
     foreach ( $tags as $tag ) {
 	     $tag_link = get_tag_link( $tag->term_id );
