@@ -16,6 +16,10 @@
   table{
     width: 100%;
   }
+  td{
+    width: 50%;
+    margin-right: 5%;
+  }
   body{
     background: black;
   }
