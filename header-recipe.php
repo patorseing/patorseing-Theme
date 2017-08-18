@@ -106,9 +106,9 @@ input[type=text]:focus {
   <a>Tags</a>
   <?php
     $args = array('category_name' 	 => 'food,tips');
-    $tags = get_category_tags($args);
+    $terms = get_terms($args);
     $html = '<ul>';
-    foreach ( $tags as $tag ) {
+    foreach ( $terms as $tag ) {
 	     $tag_link = get_tag_link( $tag->term_id );
        $html .= "<li><a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
 	     $html .= "{$tag->name}</a></li>";

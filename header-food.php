@@ -104,18 +104,17 @@ input[type=text]:focus {
   <a href="https://www.patorseingstyle.me/recipes/">Recipes</a>
   <a href="https://www.patorseingstyle.me/tips/">Tips</a>
   <a>Tags</a>
-  <?php
-    $args = array('category_name' 	 => 'food,tips');
-    $tags = get_category_tags($args);
-    $html = '<ul>';
-    foreach ( $tags as $tag ) {
-	     $tag_link = get_tag_link( $tag->term_id );
-       $html .= "<li><a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
-	     $html .= "{$tag->name}</a></li>";
-     }
-    $html .= '</ul>';
-    echo $html;
-  ?>
+  <ul>
+    <?php
+        query_posts('category_name=food,tips');
+        if (have_posts()) : while (have_posts()) : the_post();
+           if( get_the_tag_list() ){
+              echo get_the_tag_list('<li>','</li><li>','</li>');
+           }
+        endwhile; endif;
+        wp_reset_query();
+    ?>
+  </ul>
   <br>
   <a href="https://www.patorseingstyle.me/diary/">Diary</a>
   <a href="https://www.patorseingstyle.me/about_me/">About Me</a>
