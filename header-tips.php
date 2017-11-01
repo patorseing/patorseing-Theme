@@ -103,6 +103,18 @@ input[type=text]:focus {
   <a href="https://www.patorseingstyle.me/food/">All</a>
   <a href="https://www.patorseingstyle.me/recipes/">Recipes</a>
   <a href="https://www.patorseingstyle.me/tips/"><strong>Tips</strong></a>
+  <a>Tags</a>
+  <ul>
+    <?php
+        query_posts('category_name= tips');
+        if (have_posts()) : while (have_posts()) : the_post();
+           if( get_the_tag_list() ){
+              echo get_the_tag_list('<li>','</li><li>','</li>');
+           }
+        endwhile; endif;
+        wp_reset_query();
+    ?>
+  </ul>
   <br>
   <a href="https://www.patorseingstyle.me/diary/">Diary</a>
   <a href="https://www.patorseingstyle.me/about_me/">About Me</a>

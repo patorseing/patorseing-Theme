@@ -106,7 +106,7 @@ input[type=text]:focus {
   <a>Tags</a>
   <ul>
     <?php
-        query_posts('category_name=food,tips');
+        query_posts('category_name= food , tips');
         if (have_posts()) : while (have_posts()) : the_post();
            if( get_the_tag_list() ){
               echo get_the_tag_list('<li>','</li><li>','</li>');

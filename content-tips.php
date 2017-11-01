@@ -27,11 +27,11 @@
     font-family: 'Coming Soon';
     font-size: 110%;
     line-height: 250%;
-    margin-top: 20%;
-    margin-left:5%;
+    margin-top: 5%;
     margin-bottom:13%;
     padding: 5%;
     color: white;
+    border: 5% solid white;
   }
   .the_content img{
     display: block;
@@ -158,8 +158,8 @@
    }
 </style>
 <div class="the_content">
-  <h2 style="margin-top:5%; margin-bottom:1%; font-family: Chalkduster; color:white;"><?php echo get_the_title();?></h2>
-  <div class="patorseing-box-name" style="font-family: 'Acme'; font-size:125%; color:white; margin-bottom:2.5%;">
+  <h2 style="margin-left:5%; margin-top:5%; margin-bottom:1%; font-family: Chalkduster; color:white;"><?php echo get_the_title();?></h2>
+  <div class="patorseing-box-name" style=" margin-left:5%; font-family: 'Acme'; font-size:125%; color:white; margin-bottom:2.5%;">
     <?php
       echo "Date : ".get_the_date("j F, Y");
       echo " | Post by <a href= 'https://www.patorseingstyle.me/author/patorseing/'>patorseing</a> | category: <a href='https://www.patorseingstyle.me/recipes/'> recipe</a>";
