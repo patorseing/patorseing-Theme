@@ -381,37 +381,6 @@
   }
 }
     </style>
-    <script>
-        var TIMEOUT = 6000;
- 
-        var interval = setInterval(handleNext, TIMEOUT);
- 
-        function handleNext() {
-        
-        var $radios = $('input[class*=&quot;slide-radio&quot;]');
-        var $activeRadio = $('input[class*=&quot;slide-radio&quot;]:checked');
-        
-        var currentIndex = $activeRadio.index();
-        var radiosLength = $radios.length;
-        
-        $radios.attr('checked', false);
-        
-            if (currentIndex &gt;= radiosLength - 1) {
-            
-                $radios
-                .first()
-                .attr('checked', true);
-            
-            } else {
-            
-                $activeRadio
-                .next('input[class*=&quot;slide-radio&quot;]')
-                .attr('checked', true);
-            
-            }
- 
-        }  
-  </script>
   <?php wp_head(); ?>
   <div class="navigation">
      <header>
@@ -446,7 +415,6 @@
  
   <!-- Slider #2 -->
   <div class="slider slide-2">
-    <img src="images/model-2.png" alt="">
     <div class="slider-content">
       <a href= "diary">
                     <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">
@@ -459,7 +427,6 @@
  
   <!-- Slider #3 -->
   <div class="slider slide-3">
-    <img src="images/model-3.png" alt="">
     <div class="slider-content">
       <a href= "portfolio">
                         <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">
@@ -470,4 +437,44 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+ 	var TIMEOUT = 2000;
+ 
+	setInterval(handleNext, TIMEOUT);
+ 
+function handleNext() {
+ 
+  var $radios1 = $('input[class*=&quot;slide-radio1&quot;]');
+  var $radios2 = $('input[class*=&quot;slide-radio2&quot;]');
+  var $radios3 = $('input[class*=&quot;slide-radio3&quot;]');
+
+  var $activeRadio = $('input[class*=&quot;slide-radio&quot;]:checked');
+ 
+  var currentIndex = $activeRadio.index();
+  var radiosLength = $radios.length;
+ 
+  $radios1.attr('checked', false);
+  $radios2.attr('checked', false);
+  $radios3.attr('checked', false);
+ 
+  if (currentIndex &gt;= radiosLength - 1) {
+ 
+    $radios1.attr('checked', true);
+    $radios2.attr('checked', false);
+    $radios3.attr('checked', false);
+ 
+  } else {
+  	if (currentIndex == radiosLength - 2) {
+  		$radios1.attr('checked', false);
+    	$radios2.attr('checked', true);
+    	$radios3.attr('checked', false);
+  	} else {
+  		$radios1.attr('checked', false);
+    	$radios2.attr('checked', false);
+        $radios3.attr('checked', true);
+  	}
+  }
+ 
+}
+</script>
 <?php get_footer();?>
